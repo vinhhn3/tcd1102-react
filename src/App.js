@@ -1,16 +1,12 @@
 import "./App.css";
-import Home from "./components/Home";
-import Posts from "./components/Posts/Posts";
+import Body from "./layout/Body";
+import Navbar from "./layout/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-
-      <Posts />
+    <div className="container">
+      <Navbar />
+      <Body />
     </div>
   );
 }
