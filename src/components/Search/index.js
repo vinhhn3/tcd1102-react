@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Search() {
+function Search(props) {
+  const [text, setText] = useState("");
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+  const handleSearch = () => {
+    props.getGithubUsers(text);
+  };
   return (
     <div>
-      <input type="text" placeholder="Search Users..." />
-      <button className="btn btn-block btn-primary">Search</button>
+      <input
+        onChange={handleChange}
+        type="text"
+        placeholder="Search Users..."
+      />
+      <button onClick={handleSearch} className="btn btn-block btn-primary">
+        Search
+      </button>
     </div>
   );
 }
