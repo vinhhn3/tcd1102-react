@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Search from "../components/Users/Search/index";
+import Search from "../components/Search/index";
 import Users from "../components/Users/Users";
 
 function Home() {
