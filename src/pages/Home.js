@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Search from "../components/Users/Search/index";
 import Users from "../components/Users/Users";
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
   return (
     <div>
       <h1>Home Page</h1>
+      <Search />
       <Users users={users} />
     </div>
   );
