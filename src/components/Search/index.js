@@ -12,6 +12,7 @@ function Search(props) {
 
   const handleClear = () => {
     setText("");
+    props.clearUsers();
   };
   return (
     <div>

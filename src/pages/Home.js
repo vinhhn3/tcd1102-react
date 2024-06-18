@@ -11,10 +11,14 @@ function Home() {
     setUsers(data);
   };
 
+  const clearUsers = () => {
+    setUsers([]);
+  };
+
   return (
     <div>
       <h1>Home Page</h1>
-      <Search getGithubUsers={getGithubUsers} />
+      <Search clearUsers={clearUsers} getGithubUsers={getGithubUsers} />
       <Users users={users} />
     </div>
   );
