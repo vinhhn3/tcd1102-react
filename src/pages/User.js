@@ -9,10 +9,6 @@ function User() {
   const { user, getUser } = githubContext;
   const [repos, setRepos] = useState([]);
 
-  useEffect(() => {
-    getRepos();
-  }, []);
-
   const getRepos = async () => {
     const response = await axios.get(
       `https://api.github.com/users/${loginId}/repos?per_page=5&sort=created:asc`
@@ -21,6 +17,10 @@ function User() {
     console.log(response.data);
     setRepos(response.data);
   };
+
+  useEffect(() => {
+    getRepos();
+  }, []);
 
   useEffect(() => {
     getUser(loginId);
