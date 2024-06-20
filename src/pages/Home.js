@@ -1,25 +1,13 @@
-import React, { useState } from "react";
-import { getUsersByLogin } from "../api/Github";
+import React from "react";
 import Search from "../components/Search/index";
 import Users from "../components/Users/Users";
 
 function Home() {
-  const [users, setUsers] = useState([]);
-
-  const getGithubUsers = async (text) => {
-    const data = await getUsersByLogin(text);
-    setUsers(data);
-  };
-
-  const clearUsers = () => {
-    setUsers([]);
-  };
-
   return (
     <div>
       <h1>Home Page</h1>
-      <Search clearUsers={clearUsers} getGithubUsers={getGithubUsers} />
-      <Users users={users} />
+      <Search />
+      <Users />
     </div>
   );
 }

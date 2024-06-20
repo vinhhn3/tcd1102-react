@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-import GithubApi from "../../api/GitHubApi";
+import GithubApi from "../../api/GithubApi";
 import GithubContext from "./githubContext";
 import GithubReducer from "./githubReducer";
 const GithubState = (props) => {

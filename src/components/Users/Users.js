@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import GithubContext from "../../context/github/githubContext";
 import UserItem from "./UserItem";
 
 function Users(props) {
+  const githubContext = useContext(GithubContext);
+  const { usersData } = githubContext;
   return (
     <div style={userStyle}>
-      {props.users.map((user) => (
+      {usersData.map((user) => (
         <UserItem key={user.id} user={user} />
       ))}
     </div>

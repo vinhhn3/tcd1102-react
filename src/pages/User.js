@@ -1,20 +1,14 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import GithubContext from "../context/github/githubContext";
 function User() {
+  const githubContext = useContext(GithubContext);
   const { loginId } = useParams();
-  const [user, setUser] = React.useState({});
+  const { user, getUser } = githubContext;
 
   useEffect(() => {
-    getUserDetail(loginId);
+    getUser(loginId);
   }, []);
-
-  const getUserDetail = async (loginId) => {
-    const response = await axios.get("https://api.github.com/users/" + loginId);
-    console.log(response.data);
-    setUser(response.data);
-  };
 
   return (
     <div className="container">
