@@ -5,7 +5,6 @@ import Users from "../components/Users/Users";
 function Home() {
   return (
     <div>
-      <h1>Home Page</h1>
       <Search />
       <Users />
     </div>

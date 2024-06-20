@@ -1,10 +1,26 @@
-import React, { useContext, useEffect } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import RepositoryCard from "../components/RepositoryCard/RepositoryCard";
 import GithubContext from "../context/github/githubContext";
 function User() {
   const githubContext = useContext(GithubContext);
   const { loginId } = useParams();
   const { user, getUser } = githubContext;
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    getRepos();
+  }, []);
+
+  const getRepos = async () => {
+    const response = await axios.get(
+      `https://api.github.com/users/${loginId}/repos?per_page=5&sort=created:asc`
+    );
+
+    console.log(response.data);
+    setRepos(response.data);
+  };
 
   useEffect(() => {
     getUser(loginId);
@@ -60,6 +76,9 @@ function User() {
           </li>
         </ul>
       </div>
+      {repos.map((repo) => (
+        <RepositoryCard key={repo.id} repo={repo} />
+      ))}
     </div>
   );
 }
